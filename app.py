@@ -1,6 +1,8 @@
 import streamlit as st
 from textblob import TextBlob
 from googletrans import Translator
+from streamlit_lottie import st_lottie
+import json
 
 translator = Translator()
 st.title('Uso de textblob')
@@ -38,6 +40,10 @@ with st.expander('Analizar Polaridad y Subjetividad en un texto'):
             st.write( 'Es un sentimiento Negativo 😔')
         else:
             st.write( 'Es un sentimiento Neutral 😐')
+
+with open('shark gif.json') as source:
+    animation = json.load(source)
+st.lottie(animation, width = 350)
 
 with st.expander('Corrección en inglés'):
        text2 = st.text_area('Escribe por favor: ',key='4')
