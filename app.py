@@ -1,18 +1,22 @@
 import streamlit as st
 from textblob import TextBlob
 from googletrans import Translator
+from PIL import Image
 
 translator = Translator()
-st.title('Uso de textblob')
+st.title('El Juicio')
 
-st.subheader("Por favor escribe en el campo de texto la frase que deseas analizar")
+st.subheader("Serperior te va a juzgar dependiendo de lo que digas. Espero que le dejes una buena impresión")
+image = Image.open('Serperior.png')
+st.image(image, width=350)
+
 with st.sidebar:
-               st.subheader("Polaridad y Subjetividad")
+               st.subheader("¿Qué toma en cuenta?")
                ("""
-                Polaridad: Indica si el sentimiento expresado en el texto es positivo, negativo o neutral. 
-                Su valor oscila entre -1 (muy negativo) y 1 (muy positivo), con 0 representando un sentimiento neutral.
+                Serperior toma en cuenta la polaridad: Indica si el sentimiento expresado en el texto es positivo, negativo o neutral. 
+                Lo valora entre -1 (muy negativo) y 1 (muy positivo), con 0 representando un sentimiento neutral.
                 
-               Subjetividad: Mide cuánto del contenido es subjetivo (opiniones, emociones, creencias) frente a objetivo
+               El otro factor que toma en cuenta es la subjetividad: Mide cuánto del contenido es subjetivo (opiniones, emociones, creencias) frente a objetivo
                (hechos). Va de 0 a 1, donde 0 es completamente objetivo y 1 es completamente subjetivo.
 
                  """
